@@ -1,0 +1,17 @@
+name: errcheck
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: errcheck
+        uses: stanleynguyen/action-errcheck@c3233d1
+        with:
+          args: '-exclude excludes.txt ./'
